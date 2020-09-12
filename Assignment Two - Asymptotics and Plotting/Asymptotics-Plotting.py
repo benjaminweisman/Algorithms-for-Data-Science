@@ -4,6 +4,9 @@ import numpy as np
 import numpy.random as nprnd
 import time
 import random
+import scipy as sp
+from scipy.optimize import fsolve
+
 
 #input list
 A = [1,2,3,4,5,10,9,8,7,6]
@@ -35,67 +38,72 @@ def problem2b(arr):
         ar.append(x)
     return ar
 
+#problem 2b
+#gives a warning
+def findIntersect(arr):
+    for x in arr:
+        intersect = sp.optimize.fsolve(lambda x:4*x**2+x-64*x*np.log2(x)+2*x, x)
+    return intersect
+
+nums = [x for x in range(1, 1000)]
+print(findIntersect(nums))
 
 
-def problem3a(arr):
+def problem31(arr):
     ar=[]
     for x in arr:
         x=x**2
         ar.append(x)
     return ar
 
-def problem3b(arr):
+def problem32(arr):
     ar=[]
     for x in arr:
         x=np.sqrt(x)
         ar.append(x)
     return ar
 
-def problem3c(arr):
+def problem33(arr):
     ar=[]
     for x in arr:
         x=2**x
         ar.append(x)
     return ar
 
-def problem3d(arr):
+def problem34(arr):
     ar=[]
     for x in arr:
         x=np.log2(x)
         ar.append(x)
     return ar
 
-def problem3e(arr):
+def problem35(arr):
     ar=[]
     for x in arr:
         x=.5**x
         ar.append(x)
     return ar
 
-def problem3f(arr):
+def problem36(arr):
     ar=[]
     for x in arr:
         x=x*np.log2(x)
         ar.append(x)
     return ar
 
-def problem3g(arr):
+def problem37(arr):
     ar=[]
     for x in arr:
         x=x
         ar.append(x)
     return ar
 
-def problem3h(arr):
+def problem38(arr):
     ar=[]
     for x in arr:
         x=x**3
         ar.append(x)
-    return ar
-
-print(A)
-print(problem3h(A))
-    
+    return ar 
 
 
 #list of N's
@@ -109,14 +117,16 @@ timings = []
 timings2=[]
 
 #TYPE ALGORITHM HERE
-algorithm = problem2a
+algorithm = problem38
 #IF USING PAIR, TRUE
 pair = True
 if pair==True:
     #TYPE ALGORITHM 2 HERE
-    algorithm2 = problem2b
+    algorithm2 = problem33
 #DIMENSIONS OF ARRAY
 dimensions = 1
+runsize=True
+runtime=False
 
 
 
@@ -141,7 +151,7 @@ def timer(algo, timings, N, dim):
 
 
 def pairtimer(algo, algo2, timings, N, dim):
-    R=100
+    R=1000
     for i in range(R):
         if dim == 2:
             rands = np.random.rand(N,10)
@@ -160,22 +170,32 @@ def pairtimer(algo, algo2, timings, N, dim):
     
 
 t=0
-for i in seq:
-    print("For N of" , i)
+if runtime == True:
+    for i in seq:
+        print("For N of" , i)
+        if pair == True:
+            pairtimer(algorithm,algorithm2, timings, i, dimensions)
+            t=t+1
+        else:
+            times.append(timer(algorithm, timings, i, dimensions))
+            t=t+1
+
     if pair == True:
-        pairtimer(algorithm,algorithm2, timings, i, dimensions)
+        pplot.plot(seq, np.array(new1), label = str(algorithm))
+        pplot.plot(seq, np.array(new2), label = str(algorithm2))
+    else:
+        pplot.plot(seq, np.array(times), label = str(algorithm))
+
+
+
+if runsize == True:
+    if pair == True:
+        pplot.plot(nums, algorithm(nums), label = str(algorithm))
+        pplot.plot(nums, algorithm2(nums), label = str(algorithm2))
         t=t+1
     else:
-        times.append(timer(algorithm, timings, i, dimensions))
+        pplot.plot(nums, algorithm(nums), label = str(algorithm))
         t=t+1
-
-if pair == True:
-    pplot.plot(seq, np.array(new1), label = str(algorithm))
-    pplot.plot(seq, np.array(new2), label = str(algorithm2))
-    print("Intersecting on: ")
-    print(np.intersect1d(new1,new2))
-else:
-    pplot.plot(seq, np.array(times), label = str(algorithm))
 
 
 '''
@@ -183,6 +203,7 @@ deltas = np.diff(times)
 print("Deltas between each N")
 print(deltas)
 '''
+
 
 pplot.legend()
 pplot.show()
