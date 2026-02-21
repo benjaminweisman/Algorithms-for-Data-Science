@@ -1,39 +1,52 @@
 # Algorithms for Data Science
 
-Coursework from Algorithms for Data Science at New College of Florida. Covers foundational algorithm design, asymptotic analysis, and data structures — implemented in Python with NumPy, Matplotlib, and NetworkX.
+Graduate-level coursework from **Algorithms for Data Science**, completed as part of the **M.S. in Data Science** program at **New College of Florida**. The course covers rigorous algorithm design, computational complexity analysis, and advanced data structures — with implementations in Python emphasizing both theoretical correctness and empirical performance.
+
+## Course Overview
+
+This is a graduate-level course requiring formal analysis of algorithmic efficiency, implementation of classical and applied algorithms, and benchmarking of runtime performance against theoretical bounds. Topics span core computer science fundamentals through applied data science algorithms including graph theory and network flow.
 
 ## Assignments
 
 ### 1. Peak Finding
-Divide-and-conquer peak finding in 1D and 2D arrays. Includes a linear scan O(N), binary search O(log N), brute-force 2D O(N²), and optimized 2D O(N log N) approaches, with comparison counting and runtime benchmarking.
+Divide-and-conquer peak finding in 1D and 2D arrays. Implements linear scan O(N), binary search O(log N), brute-force 2D O(N²), and optimized 2D O(N log N) approaches — with comparison counting and runtime benchmarking.
 
-### 2. Asymptotics and Plotting
-Asymptotic growth analysis of common complexity classes (log N, √N, N, N log N, N², N³, 2^N). Includes bubble sort as a reference implementation, function intersection computation with SciPy, and Matplotlib visualizations comparing theoretical vs. actual runtimes.
+### 2. Asymptotic Analysis and Complexity Visualization
+Formal asymptotic growth analysis across common complexity classes (log N, √N, N, N log N, N², N³, 2^N). Includes bubble sort as a reference, function intersection computation with SciPy, and Matplotlib visualizations comparing theoretical vs. empirical runtimes.
 
 ### 3. Heapsort
-Max-heap construction and heap sort implementation with O(N log N) time complexity. Benchmarks sorting performance against theoretical N log N growth.
+Max-heap construction and in-place heap sort with O(N log N) time complexity. Benchmarks sorting performance against theoretical N log N growth curves.
 
 ### 4. Priority Queues
-Max-heap-based priority queue applied to a course enrollment system. Students are scored by level (graduate/undergraduate/auditor), major, year, and registration date, then ranked using heap sort to select the top 25 applicants.
+Max-heap-based priority queue applied to a graduate course enrollment system. Students are ranked by level (graduate/undergraduate/auditor), major, year, and registration date — sorted via heap sort to select the top 25 applicants.
 
-### 5. Hashing and Runtime
-Hash table with linear probing collision resolution. Uses double hashing (mod 3011, then mod 1021 into a prime-sized table) and measures lookup performance across test keys with histogram visualization.
+### 5. Hash Tables and Collision Resolution
+Hash table with linear probing and double hashing (mod 3011, mod 1021 into a prime-sized table). Measures lookup performance across test keys with histogram visualization of collision behavior.
 
-### 7. Weighted Graphs and Flow Networks
-Directed weighted graph analysis using NetworkX: adjacency matrices, Dijkstra's shortest path, path enumeration with probability calculation, graph diameter via eccentricity, and maximum flow (Ford-Fulkerson).
+### 7. Weighted Graphs and Network Flow
+Directed weighted graph analysis using NetworkX: adjacency matrices, Dijkstra's shortest path algorithm, path enumeration with probability calculation, graph diameter via eccentricity, and maximum flow via Ford-Fulkerson.
 
 ## Tech Stack
 
-- **Language**: Python
+- **Language**: Python 3
 - **Libraries**: NumPy, Matplotlib, SciPy, NetworkX
 
 ## Topics Covered
 
 - Divide and conquer
-- Asymptotic analysis (Big-O, Big-Theta)
+- Asymptotic analysis (Big-O, Big-Theta, Big-Omega)
+- Sorting algorithms and comparative analysis
 - Heaps and heap sort
 - Priority queues
-- Hash tables and collision resolution
-- Graph algorithms (Dijkstra, Ford-Fulkerson)
-- Network flow
-- Runtime benchmarking and visualization
+- Hash tables and collision resolution strategies
+- Graph theory and graph algorithms
+- Shortest path (Dijkstra's algorithm)
+- Network flow (Ford-Fulkerson)
+- Runtime benchmarking and empirical complexity validation
+
+## About
+
+**Course**: Algorithms for Data Science (Graduate)
+**Program**: M.S. in Data Science
+**Institution**: New College of Florida
+**Language**: Python
